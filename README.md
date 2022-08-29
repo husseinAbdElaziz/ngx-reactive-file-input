@@ -34,7 +34,6 @@ import { NgxReactiveFileInputModule } from 'ngx-reactive-file-input';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
     NgxReactiveFileInputModule
   ],
   providers: [],
