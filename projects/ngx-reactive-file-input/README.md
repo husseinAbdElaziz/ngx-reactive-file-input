@@ -1,24 +1,76 @@
-# NgxReactiveFileInput
+## Overview
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+NGX Reactive File Input is a simple and Lightweight component which helps to use input file with forms (reactive or template driven)
+with native file input attributes support (id, class, accept, etc...)
 
-## Code scaffolding
+## DEMO
 
-Run `ng generate component component-name --project ngx-reactive-file-input` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-reactive-file-input`.
-> Note: Don't forget to add `--project ngx-reactive-file-input` or else it will be added to the default project in your `angular.json` file. 
+check the [DEMO](https://stackblitz.com/edit/angular-ivy-grfxmc?file=src/app/app.component.html)
 
-## Build
+## Installation
 
-Run `ng build ngx-reactive-file-input` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm i --save ngx-reactive-file-input
+```
 
-## Publishing
+## Usage
 
-After building your library with `ng build ngx-reactive-file-input`, go to the dist folder `cd dist/ngx-reactive-file-input` and run `npm publish`.
+### Importing The 'ngx-reactive-file-input' Module
 
-## Running unit tests
+```TypeScript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-Run `ng test ngx-reactive-file-input` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { AppComponent } from './app.component';
+import { NgxReactiveFileInputModule } from 'ngx-reactive-file-input';
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    NgxReactiveFileInputModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+
+### In Component HTML
+
+```html
+
+<ngx-reactive-file-input formControlName="file" (fileChanged)="files = $event"></ngx-reactive-file-input>
+```
+
+You can use any input file type attributes such as accept, id, class, etc...
+
+example
+
+```html
+
+<form>
+    <ngx-reactive-file-input accept="images/*" class="input__file" id="attachment"></ngx-reactive-file-input>
+</form>
+```
+
+## Parameters
+
+Name  | Description | Example |
+------------- | ------------- | -------------
+(fileChanged)  | get input files change  | (fileChanged)="handleFiles($event)"
+
+## License
+
+[MIT](/LICENSE)
+
+## Change Log
+
+[CHANGELOG](/CHANGELOG.md)
