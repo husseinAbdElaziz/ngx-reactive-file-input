@@ -1,27 +1,77 @@
-# NgxReactiveFileInput
+## Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+NGX Reactive File Input is a simple and Lightweight component which helps to use input file with forms (reactive or template driven)
+with native file input attributes support (id, class, accept, etc...)
 
-## Development server
+## DEMO
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+check the [DEMO](https://stackblitz.com/edit/angular-ivy-grfxmc?file=src/app/app.component.html)
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm i --save ngx-reactive-file-input
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Importing The 'ngx-reactive-file-input' Module
 
-## Running unit tests
+```TypeScript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { AppComponent } from './app.component';
+import { NgxReactiveFileInputModule } from 'ngx-reactive-file-input';
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    NgxReactiveFileInputModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-## Further help
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### In Component HTML
+
+```html
+
+<ngx-reactive-file-input formControlName="file" (fileChanged)="files = $event"></ngx-reactive-file-input>
+```
+
+You can use any input file type attributes such as accept, id, class, etc...
+
+example
+
+```html
+
+<form>
+    <ngx-reactive-file-input accept="images/*" class="input__file" id="attachment"></ngx-reactive-file-input>
+</form>
+```
+
+## Parameters
+
+Name  | Description | Example |
+------------- | ------------- | -------------
+(fileChanged)  | get input files change  | (fileChanged)="handleFiles($event)"
+
+## License
+
+[MIT](/LICENSE)
+
+## Change Log
+
+[CHANGELOG](/CHANGELOG.md)

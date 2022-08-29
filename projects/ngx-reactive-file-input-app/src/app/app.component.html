@@ -1,0 +1,38 @@
+<div class="container">
+
+
+
+
+  <h1>
+    Ngx file input form
+  </h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="input__item">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name">
+
+    </div>
+
+    <div class="input__item">
+      <label for="attachment">Attachment</label>
+
+      <ngx-reactive-file-input class="attachment__input" formControlName="attachment" accept="image/*"
+        (fileChanged)="files = $event"></ngx-reactive-file-input>
+      <br>
+      <small class="error__container"
+        *ngIf="(f['attachment']?.touched || f['attachment']?.dirty) && f['attachment']?.errors">
+        <span *ngIf="(f['attachment']?.errors)!['required']">Required field </span>
+      </small>
+    </div>
+
+
+
+    <div class="input__item">
+      <button>submit</button>
+      <button type="reset">reset</button>
+    </div>
+  </form>
+
+
+</div>
