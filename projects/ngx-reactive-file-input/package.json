@@ -1,6 +1,13 @@
 {
   "name": "ngx-reactive-file-input",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "author": {
+    "name": "Hussein Abd Elaziz",
+    "url": "https://www.linkedin.com/in/husseinabdelaziz/"
+  },
+  "repository": {
+    "url": "https://github.com/husseinAbdElaziz/ngx-reactive-file-input"
+  },
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0"
